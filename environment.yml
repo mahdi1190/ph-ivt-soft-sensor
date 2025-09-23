@@ -1,0 +1,14 @@
+name: dd-repro
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - pyomo
+  - jupyterlab
+  - pip
+  - pip:
+      - -r file:requirements.txt

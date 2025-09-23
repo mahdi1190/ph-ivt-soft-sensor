@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and large files (keep small, anonymized samples only)
+data/raw/*
+data/processed/*
+data/external/*
+
+# Allow small samples
+!data/raw/README.md
+!data/processed/README.md
+!data/external/README.md

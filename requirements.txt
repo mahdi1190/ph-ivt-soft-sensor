@@ -1,0 +1,7 @@
+# Minimal Python requirements (pin exact versions used in the paper)
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+scipy>=1.11
+pyomo>=6.7
+# add anything else needed to reproduce results
