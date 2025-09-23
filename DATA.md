@@ -11,6 +11,3 @@ This table lists *all* datasets used or generated in the paper. For each item, p
 |----|------|-------------|--------------|---------|-----------|--------|--------|--------------------|
 | D1 | data/raw/<file> | <short desc> | <DOI or URL> | <CC BY 4.0 / proprietary / etc.> | <size> | <checksum> | public | `python code/pipeline.py --stage fetch --item D1` |
 | D2 | data/processed/<file> | <derived desc> | generated | CC BY 4.0 | <size> | <checksum> | public | `python code/pipeline.py --stage process --from D1` |
-
-**Editors/Reviewers access to proprietary software or custom code (if any):**  
-Describe here precisely how editors/reviewers can access non-public tools or share a temporary license, as required by *Digital Discovery*'s guidelines on *Software and Code*.

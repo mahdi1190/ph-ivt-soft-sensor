@@ -501,7 +501,7 @@ def load_and_sample_ph(
 # 11)load → UKF → outputs
 # -------------------------------------------------------------------------
 def run_soft_sensor(
-    data_path: str = "data/raw/softsensor_example.csv",
+    data_path: str = "data/raw/softsensor.csv",
     column: str | None = None,
     t_final: float = 120.0,
     n_samples: int = 121,
