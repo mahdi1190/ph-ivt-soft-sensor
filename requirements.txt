@@ -1,7 +1,12 @@
-# Minimal Python requirements (pin exact versions used in the paper)
+# Core
 numpy>=1.26
 pandas>=2.2
 matplotlib>=3.8
 scipy>=1.11
-pyomo>=6.7
-# add anything else needed to reproduce results
+
+# DAE solver
+assimulo>=3.5
+sundials>=6.5  # satisfied via conda-forge; if using pip, ensure system SUNDIALS is present
+
+# Filtering
+filterpy>=1.4.5

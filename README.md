@@ -1,9 +1,9 @@
-# Soft sensor based on pH for real-time monitoring of mRNA medicines production — Data & Code for *Digital Discovery*
+# Soft sensor based on pH for real-time monitoring of mRNA medicines production — Data & Code
 
 This repository contains the **data**, **analysis code**, and **reproduction instructions** for the manuscript:
 
 > **Soft sensor based on pH for real-time monitoring of mRNA medicines production**  
-> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. (*Manuscript submitted to* *Digital Discovery*, Royal Society of Chemistry, 2025; DOI to be added when available.)
+> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. (*DOI to be added when available.*)
 
 **Affiliations**
 - School of Chemical, Materials and Biological Engineering, University of Sheffield, Sheffield S1 3JD, UK.
@@ -15,16 +15,14 @@ This repository contains the **data**, **analysis code**, and **reproduction ins
 
 1. Clone the repository and create the environment:
    ```bash
-   git clone https://github.com/<org-or-user>/<repo>.git
+   git clone https://github.com/mahdi1190/ph-ivt-soft-sensor-DA.git
    cd <repo>
    conda env create -f environment.yml
    conda activate dd-repro
    ```
-2. (If applicable) Download large datasets from the associated Zenodo record (DOI to be added) and place them under `data/` as described below.
-3. Reproduce the main results:
+2. Reproduce the main results:
    ```bash
    jupyter lab
-   # open notebooks/01_reproduce_main_results.ipynb
    ```
 
 ## Repository layout
@@ -54,11 +52,11 @@ See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, si
 
 When citing the **article** and **this repository**, please include both:
 
-- Article (update when accepted):  
-  Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, *Digital Discovery* (RSC), 2025, DOI: tba.
+- Article (*update if accepted*):  
+  Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, 2025, DOI: tba.
 
 - Code & data:  
-  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/<org-or-user>/<repo> (archived at Zenodo, DOI: tba).
+  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor-DA (DOI: tba).
 
 BibTeX and other formats will be available via the repository's `CITATION.cff` and the Zenodo record.
 

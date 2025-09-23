@@ -7,8 +7,9 @@ dependencies:
   - pandas
   - matplotlib
   - scipy
-  - pyomo
+  - assimulo
+  - sundials
   - jupyterlab
   - pip
   - pip:
-      - -r file:requirements.txt
+      - filterpy
