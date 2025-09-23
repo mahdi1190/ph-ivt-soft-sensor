@@ -1,4 +1,5 @@
 # Soft sensor based on pH for real-time monitoring of mRNA medicines production — Data & Code
+Author: Mahdi Ahmed
 
 This repository contains the **data**, **analysis code**, and **reproduction instructions** for the manuscript:
 
