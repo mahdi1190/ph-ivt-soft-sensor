@@ -21,7 +21,8 @@ Notes
   treatment.)
 • "Acetate" below can represent the acetate buffer provided by magnesium acetate stocks.
 
-Author: (cleaned & packaged) 2025
+Author: Mahdi Ahmed, Shady Hamed, 2025
+License: MIT
 """
 from __future__ import annotations
 

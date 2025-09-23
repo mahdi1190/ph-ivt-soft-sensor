@@ -28,11 +28,10 @@ This repository contains the **data**, **analysis code**, and **reproduction ins
 ## Repository layout
 
 ```
-code/                  # Python modules, Pyomo models, utilities
-notebooks/             # Jupyter notebooks to reproduce figures/tables
-data/
-  raw/                 # Unmodified source data (usually from Zenodo)
-  processed/           # Data produced by scripts in code/
+code/                  # Python code for the models themselves as well as any relevant plotting code
+notebooks/             # Jupyter notebooks to reproduce figures/tables and legacy code
+data/                  # Unless specified, this will constain processed data used by the code
+  raw/                 # Unmodified source data
   external/            # Third-party reference data (document licenses)
 figures/               # Generated figures for the paper
 reports/               # Tables and other artefacts used in the manuscript
@@ -41,7 +40,7 @@ reports/               # Tables and other artefacts used in the manuscript
 
 ## Data inventory and provenance
 
-See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, size, checksum, source/DOI, license, and how to regenerate).
+See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, source/DOI, license).
 
 ## Licensing
 

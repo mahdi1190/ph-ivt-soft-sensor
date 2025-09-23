@@ -18,10 +18,13 @@ Notes
 -----
 • Requires Assimulo (with SUNDIALS). Recommended:
     conda install -c conda-forge assimulo sundials
-• Figures are saved to files (non-interactive backend used if needed).
-• Constants match model (your K_MgNTP (K1) and K_DNAT7 (K12) preserved).
+• Figures are saved to files
 
-Author: Your Name (2025)
+• Different runs should be re-named based on the experiment, otherwise the default run name is saved under **reports/ivt_ukf_results.csv**
+
+• Run this code from if __name__ == "__main__": and then adjust there. Point it to the correct sheet and pH column, or adjust the path accoridngly for your own data.
+Author: Mahdi Ahmed (2025)
+License: MIT
 """
 from __future__ import annotations
 
@@ -477,31 +480,38 @@ def run_ukf(
 # -------------------------------------------------------------------------
 def load_and_sample_ph(
     path: str | Path,
+    sheet_name: str,
+    ph_col: str,
     N_target: int = 100,
     t_final: float = 120.0,
-    col: str | None = None,
-) -> Tuple[np.ndarray, np.ndarray]:
-    """Load pH time-series from CSV/Excel and linearly resample to N_target points over [0, t_final]."""
+) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Load pH time-series from a sheet in all_data_processed.xlsx
+    and resample to N_target points over [0, t_final].
+    """
     path = Path(path)
-    if path.suffix.lower() in {".xls", ".xlsx"}:
-        df = pd.read_excel(path)
-    else:
-        df = pd.read_csv(path)
-    if col is None:
-        col = df.columns[0]
-    ph_full = df[col].to_numpy()
+    df = pd.read_excel(path, sheet_name=sheet_name)
 
-    N_full = len(ph_full)
-    t_full = np.linspace(0.0, t_final, N_full)
+    # Ensure numeric
+    df["time"] = pd.to_numeric(df["time"], errors="coerce")
+    df[ph_col] = pd.to_numeric(df[ph_col], errors="coerce")
+
+    # Drop rows without valid time or pH
+    df = df[np.isfinite(df["time"]) & np.isfinite(df[ph_col])]
+
+    t_full = df["time"].to_numpy()
+    pH_full = df[ph_col].to_numpy()
+
     t_sample = np.linspace(0.0, t_final, N_target)
-    pH_sample = np.interp(t_sample, t_full, ph_full)
+    pH_sample = np.interp(t_sample, t_full, pH_full, left=pH_full[0], right=pH_full[-1])
     return t_sample, pH_sample
+
 
 # -------------------------------------------------------------------------
 # 11)load → UKF → outputs
 # -------------------------------------------------------------------------
 def run_soft_sensor(
-    data_path: str = "data/raw/softsensor.csv",
+    data_path: str = "data/all_data_processed.xlsx",
     column: str | None = None,
     t_final: float = 120.0,
     n_samples: int = 121,
@@ -627,9 +637,18 @@ def run_soft_sensor(
 # 12) MAIN (run with defaults)
 # -------------------------------------------------------------------------
 if __name__ == "__main__":
-    # Edit these defaults or call run_soft_sensor(...) from a notebook/script.
-    run_soft_sensor(
-        data_path="data/softsensor.csv",
-        run_name="softsensor_run",
-        save_pdf=False,
+    # Example: eGFP + HEPES → sheet=egfphepes, ph=ph2
+    ts, ph_meas = load_and_sample_ph(
+        path="data/all_data_processed.xlsx",
+        sheet_name="egfphepes",
+        ph_col="ph2",
+        N_target=121,
+        t_final=120.0,
     )
+
+    y0 = make_initials(pH_target=ph_meas[0])
+    params = default_kin_params()
+
+    est = run_ukf(ts, ph_meas, y0=y0, params=params)
+
+    print("[OK] UKF run finished; got", len(est["t"]), "time points")
