@@ -44,10 +44,10 @@ reports/               # Tables and other artefacts used in the manuscript
 See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, source/DOI, license).
 
 ## License and Usage
-
+![License: ARUL](https://img.shields.io/badge/License-ARUL-blue.svg)
 This repository provides reference code supporting the publication:
 
-> Mahdi Ahmed *et al. “Soft sensor based on pH for real-time monitoring of mRNA medicines production.” [Journal / Preprint], 2025.  
+> Mahdi Ahmed *et al.* “Soft sensor based on pH for real-time monitoring of mRNA medicines production.” [Journal / Preprint], 2025.  
 > *(Update with full citation when available.)*
 
 The **code** is released under the **Academic and Research Use License (ARUL)** (see `LICENSE`).  
