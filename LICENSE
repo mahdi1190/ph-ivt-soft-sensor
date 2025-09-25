@@ -1,21 +1,24 @@
-MIT License
+Academic and Research Use License (ARUL)
 
-Copyright (c) 2025 <Your Name>
+Copyright (c) 2025, Dr Zoltan Kis, University of Sheffield. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person or organisation obtaining a copy of this software (the "Software") and associated documentation files, to use, reproduce, and modify the Software for non-commercial research and educational purposes only, provided that the following conditions are met:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Commercial use of the Software, in whole or in part, is strictly prohibited without a separate, written license agreement obtained from the copyright holder(s).
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Redistributions of the Software or derivative works must retain the above copyright notice, this license, and the following disclaimer.
+
+3. Any publications resulting from the use of the Software must cite the associated article:
+
+   [Full reference to the soft sensor manuscript once published]
+
+DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S) OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For commercial licensing enquiries, please contact:
+- Commercialisation team at the University of Sheffield: [insert contact or URL]
+- Legal team at the University of Sheffield: ri-contracts@sheffield.ac.uk
+- Dr Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk (Project Lead)
+- Sheikh Mahdi Ahmed, University of Sheffield: smahmed3@sheffield.ac.uk (Developer)
+- Shady Hamed, University of Sheffield: s.hamed@sheffield.ac.uk (Developer)
