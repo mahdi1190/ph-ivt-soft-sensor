@@ -8,7 +8,6 @@ This document lists all datasets **used** and **generated** by the code in this 
 We include simple commands to recompute the generated artefacts from the provided scripts.
 
 > **Licensing:** Unless otherwise stated, data distributed in this repository are under **CC BY 4.0**.  
-> **Checksums:** If you wish to track integrity, compute SHA256 for each file locally (examples at the end).
 
 ---
 
