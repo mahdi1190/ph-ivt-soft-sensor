@@ -43,10 +43,29 @@ reports/               # Tables and other artefacts used in the manuscript
 
 See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, source/DOI, license).
 
-## Licensing
+## License and Usage
 
-- **Code** is MIT licensed (see `LICENSE`).
-- **Data** are licensed CC BY 4.0 unless otherwise stated (see `DATA_LICENSE.md`). Third-party data retain their original licenses, which are recorded in `DATA.md`.
+This repository provides reference code supporting the publication:
+
+> Mahdi Ahmed *et al. “Soft sensor based on pH for real-time monitoring of mRNA medicines production.” [Journal / Preprint], 2025.  
+> *(Update with full citation when available.)*
+
+The **code** is released under the **Academic and Research Use License (ARUL)** (see `LICENSE`).  
+It is free to use, modify, and redistribute **for non-commercial research and educational purposes only**.  
+**Commercial use is not permitted** without a separate, written license agreement.
+
+For commercial licensing enquiries, please contact:
+- Commercialisation team at the University of Sheffield: [insert contact or URL]
+- Legal team at the University of Sheffield: ri-contracts@sheffield.ac.uk
+- Dr Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk
+
+If you use this code in academic work, please **cite the publication** listed above.
+
+### Data licensing
+
+Unless otherwise noted, **data** in `data/` are licensed **CC BY 4.0** (see `DATA_LICENSE.md`).  
+Third-party data retain their original licenses and are documented in `DATA.md`.
+
 
 ## How to cite
 
