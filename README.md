@@ -75,7 +75,7 @@ When citing the **article** and **this repository**, please include both:
   Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, 2025, DOI: tba.
 
 - Code & data:  
-  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor-DA (DOI: tba).
+  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor (DOI: tba).
 
 BibTeX and other formats will be available via the repository's `CITATION.cff` and the Zenodo record.
 
