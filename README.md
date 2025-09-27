@@ -55,7 +55,7 @@ It is free to use, modify, and redistribute **for non-commercial research and ed
 **Commercial use is not permitted** without a separate, written license agreement.
 
 For commercial licensing enquiries, please contact:
-- Commercialisation team at the University of Sheffield
+- Commercialisation Team at the University of Sheffield: https://sheffield.ac.uk/commercialisation
 - Legal team at the University of Sheffield: ri-contracts@sheffield.ac.uk
 - Dr Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk
 
