@@ -1,21 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-plot_ph_quad.py — 4× pH curves (experiment + UKF) from the unified Excel + reports CSVs.
+plot_ph_quad.py — 4× pH curves (experiment + UKF) from the Excel + reports CSVs.
 
-Experimental pH: data/all_data_processed.xlsx
-  Sheets: egfphepes, egfptris, csphepes, csptris
-  Uses sheet-specific pH column:
-    - egfphepes -> ph2
-    - egfptris  -> ph1
-    - csphepes  -> ph2
-    - csptris   -> ph3
-  Uses 'time' as the x-axis (rows with NaN in chosen pH are discarded).
-
-Model pH: reports/softsensor_run/ivt_ukf_results_*.csv
-  Needs columns: time_min (or time/minute) and pH_pred (case-insensitive match).
-
-Outputs: figures/ph/ph_4curves_with_predictions_cb.(pdf|png)
 Author: Mahdi Ahmed (2025)
 License: MIT
 """
@@ -35,7 +22,6 @@ ALL_DATA_XLSX = "data/all_data_processed.xlsx"
 UKF_DIR       = "reports/softsensor_run"
 OUT_DIR       = "figures/ph"
 
-# Which pH column to use per sheet (your mapping)
 PH_COL_MAP = {
     "egfphepes": "ph2",
     "egfptris":  "ph1",
@@ -43,7 +29,6 @@ PH_COL_MAP = {
     "csptris":   "ph3",
 }
 
-# File names for UKF CSVs (under UKF_DIR)
 UKF_FILES = {
     "CSP + HEPES":  "ivt_ukf_results_csp_HEPES.csv",
     "CSP + TRIS":   "ivt_ukf_results_csp_TRIS.csv",
@@ -51,7 +36,7 @@ UKF_FILES = {
     "eGFP + TRIS":  "ivt_ukf_results_egfp_TRIS.csv",
 }
 
-# Sheet names for experiment (matching the labels above)
+# Sheet names for experiment
 SHEET_FOR_LABEL = {
     "CSP + HEPES":  "csphepes",
     "CSP + TRIS":   "csptris",
@@ -65,7 +50,6 @@ MARKERS   = ["o", "s", "^", "d"]
 SCALE_CANVAS = 1.0
 BASE_W, BASE_H = 7.3, 7.3
 LEGEND_FONTSIZE = 10
-# Three stacked legend rows
 LEG1_Y, LEG2_Y, LEG3_Y = 0.77, 0.735, 0.70
 TOP_RECT = 0.66  # headroom for three stacked legend rows
 LINEWIDTH = 2.0
@@ -91,7 +75,6 @@ def _norm(s: str) -> str:
     return "".join(ch for ch in str(s).lower() if ch.isalnum())
 
 def _pick(df: pd.DataFrame, *candidates: str) -> str | None:
-    """Return the first exact (or loose) match from candidates present in df.columns."""
     for c in candidates:
         if c in df.columns:
             return c
@@ -109,7 +92,6 @@ def apply_plain_ticks(ax: plt.Axes):
     ax.yaxis.set_major_formatter(fmt)
 
 def load_experimental_ph(all_data_xlsx: Path, sheet: str) -> tuple[np.ndarray, np.ndarray]:
-    """Load (time, pH) from the unified Excel, using the mapped pH column per sheet."""
     df = pd.read_excel(all_data_xlsx, sheet_name=sheet)
     tcol = _pick(df, "time")
     if tcol is None:
@@ -129,7 +111,6 @@ def load_experimental_ph(all_data_xlsx: Path, sheet: str) -> tuple[np.ndarray, n
     return t[good], y[good]
 
 def load_ukf_ph(csv_path: Path) -> tuple[np.ndarray, np.ndarray]:
-    """Load (time, pH_pred) from a UKF CSV; returns empty arrays if missing."""
     if not csv_path.exists():
         return np.array([]), np.array([])
     df = pd.read_csv(csv_path)
@@ -189,11 +170,9 @@ def plot_ph_quad(
     # 2) Predicted curves (dashed, matching colour; single legend entry)
     for i, ((t_p, y_p, lbl), color) in enumerate(zip(pred_series, CB_COLORS)):
         if y_p.size:
-            # Anchor first model point to first experimental pH (cosmetic)
             t_e, y_e, _ = exp_series[i]
             if y_e.size and y_p.size:
                 y_p = y_p.copy()
-                # interpolate to earliest exp time and set first model value to that exp pH
                 y_p[0] = y_e[np.argmin(np.abs(t_e - t_e.min()))]
             ax.plot(
                 t_p if t_p.size else np.linspace(0, 120, len(y_p)),
@@ -202,11 +181,9 @@ def plot_ph_quad(
                 label="Kinetic Model (UKF)" if i == 0 else "_nolegend_"
             )
 
-    # 3) Axes, limits, style
     ax.set_xlabel("Time (minutes)")
     ax.set_ylabel("pH")
     ax.set_xlim(0, 120)
-    # y-lims from available curves with a small margin
     ymins = []; ymaxs = []
     for t_e, y_e, _ in exp_series:
         if y_e.size: ymins.append(np.nanmin(y_e)); ymaxs.append(np.nanmax(y_e))
@@ -218,8 +195,6 @@ def plot_ph_quad(
         ax.set_ylim(ylo, yhi)
     apply_plain_ticks(ax)
     ax.grid(False)
-
-    # 4) Legends (three stacked rows, inside figure)
     handles, labels_all = ax.get_legend_handles_labels()
     h_by_l = {l: h for h, l in zip(handles, labels_all)}
 
@@ -249,7 +224,6 @@ def plot_ph_quad(
             handlelength=1.8, handletextpad=0.6, columnspacing=1.6, labelspacing=0.6,
         )
 
-    # leave room for stacked legends
     plt.tight_layout(rect=(0, 0, 1, TOP_RECT))
 
     # Save
@@ -260,7 +234,6 @@ def plot_ph_quad(
     plt.close(fig)
     print(f"[OK] wrote:\n  {out_pdf}\n  {out_png}")
 
-# ------------- run-from-main -------------
 if __name__ == "__main__":
     plot_ph_quad(
         all_data_path=ALL_DATA_XLSX,

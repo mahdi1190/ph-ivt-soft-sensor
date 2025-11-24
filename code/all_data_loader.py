@@ -14,7 +14,6 @@ from typing import Dict, Tuple
 import numpy as np
 import pandas as pd
 
-# Which pH column to use for each sheet/run
 PH_PICK: Dict[str, str] = {
     "egfphepes": "ph2",
     "csptris":   "ph3",
@@ -60,7 +59,7 @@ def load_run(all_data_path: str | Path, run_id: str) -> pd.DataFrame:
     out = pd.DataFrame({
         "time_min": df["time"].astype(float),
         "pH":       df[ph_col].astype(float),
-        "RNA":      df["rna2"].astype(float),    #rna 2 is used in this case only 
+        "RNA":      df["rna2"].astype(float),  
         "ATP_tot":  df["ATP_tot"].astype(float),
         "GTP_tot":  df["GTP_tot"].astype(float),
         "CTP_tot":  df["CTP_tot"].astype(float),

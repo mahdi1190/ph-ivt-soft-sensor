@@ -2,13 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 plot_rna_quad.py 
-Reads:
-  • Experimental RNA from  data/all_data_processed.xlsx (sheets: egfphepes, egfptris, csphepes, csptris), column 'rna2'
-  • UKF model CSVs from     reports/softsensor_run/
-  • HH overlay from         data/HH.xlsx  (legacy: single sheet with columns egfp/egfp2/csp/csp2)
-                             or data/H_H_NTP.xlsx (fallback: multi-sheet; any sheet with RNA-like column)
 
-Outputs: figures/rna/quad_rna_profiles.(pdf|png)
 Author: Mahdi Ahmed (2025)
 License: MIT
 """
@@ -23,18 +17,15 @@ if not matplotlib.get_backend().lower().startswith("qt"):
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 
-# ---------- styling ----------
 COL = {'exp':'#D55E00','ukf':'#0072B2','hh':'#009E73','unc':'#999999'}
 AXFS=10; TICKFS=10; LABFS=10
 LWS=2.2; MS=7
 PANEL_Y=1.025
 
-# canvas / layout
 BASE_W, BASE_H = 7.3, 5.0
 TOP=0.82; WSPACE=0.36; HSPACE=0.46
 LEG_Y=0.985
 
-# file structure defaults
 ALL_DATA_XLSX = "data/all_data_processed.xlsx"
 UKF_DIR       = "reports/softsensor_run"
 OUT_DIR       = "figures/rna"
@@ -63,11 +54,11 @@ _HH_SHEET_ALIASES = {
 }
 
 def _norm(s: str) -> str:
-    """normalize for matching: lowercase, alnum only."""
+
     return "".join(ch for ch in str(s).lower() if ch.isalnum())
 
 def _pick(df: pd.DataFrame, *candidates: str) -> str | None:
-    """Return the first exact (or loose) match from candidates present in df.columns."""
+
     for c in candidates:
         if c in df.columns: return c
     # loose (normalized contains)
@@ -80,13 +71,13 @@ def _pick(df: pd.DataFrame, *candidates: str) -> str | None:
     return None
 
 def apply_plain_ticks(ax: plt.Axes):
-    """Force plain numeric y ticks (no scientific 1e±k or offsets)."""
+
     fmt = ScalarFormatter(useOffset=False, useMathText=False)
     fmt.set_scientific(False)
     ax.yaxis.set_major_formatter(fmt)
 
 def resolve_hh_path(candidates=("data/HH.xlsx", "data/H_H_NTP.xlsx")) -> Path | None:
-    """Return the first HH workbook that exists, or None if neither is present."""
+
     for c in candidates:
         p = Path(c)
         if p.exists():
@@ -329,7 +320,7 @@ if __name__ == "__main__":
         all_data_path=ALL_DATA_XLSX,
         hh_path=hh_auto,         
         out_dir=OUT_DIR,
-        show_uncertainty=False,   # set True to show ±2σ bands
+        show_uncertainty=False,  
         unc=1.0,                  
         smooth=True,
         window=20,

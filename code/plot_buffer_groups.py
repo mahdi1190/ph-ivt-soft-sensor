@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 plot_buffer_groups.py
 =====================
 
 Plot buffer base/acid species from UKF outputs, with optional HH overlays.
 
-Inputs (default, repo-friendly):
+Inputs:
   reports/softsensor_run/
     - ivt_ukf_results_egfp_HEPES.csv
     - ivt_ukf_results_egfp_TRIS.csv
@@ -35,13 +34,11 @@ if not matplotlib.get_backend().lower().startswith("qt"):
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-# ---------- typography ----------
 AX_LABEL_SIZE    = 10
 TICK_LABEL_SIZE  = 10
 PANEL_LABEL_SIZE = 10
 LINEWIDTH        = 1.8
 
-# ---------- unified layout ----------
 FIGSIZE       = (7.3, 7.3)
 TOP_FIG       = 0.70   # ↓ smaller number = MORE headroom for legend
 BOT_FIG       = 0.12
@@ -149,7 +146,7 @@ def plot_buffer_groups(
     {
         'group_key':'HEPES',
         'base':'HEP_base',
-        'acid':'H_HEP_acid',          # <-- note the exact name from your CSV
+        'acid':'H_HEP_acid',         
         'display_name':'HEPES/H-HEPES',
         'factor':1e3,'unit':'mM',
         'hhpred_col_exact':'HEPES_A-',
@@ -158,7 +155,7 @@ def plot_buffer_groups(
     {
         'group_key':'Acetate',
         'base':'Acetate_base',
-        'acid':'Acetic_acid',          # <-- exact name
+        'acid':'Acetic_acid',         
         'display_name':'Acetate/Acetic acid',
         'factor':1e3,'unit':'mM',
         'hhpred_col_exact':'Mg_A-',
@@ -262,7 +259,6 @@ def plot_buffer_groups(
                     if m.any():
                         ax.plot(t[m], ya[m], label=f"{_short_label(label)} – Acid", **as_)
 
-                # HH Prediction overlay (markers), skip Pi as per your prior guard
                 if xls is not None and hh_col and key!='pi':
                     sheet = _sheet_for_label(label)
                     if sheet:
@@ -295,7 +291,6 @@ def plot_buffer_groups(
                         else:
                             t_h = None
 
-                        # pick HH column (exact or fuzzy)
                         tgt = hh_col.strip().lower()
                         matched_col = None
                         for c in df_hh.columns:
@@ -322,7 +317,6 @@ def plot_buffer_groups(
                                 ax.plot(tp[m], y_p[m], linestyle='none', marker='o', markersize=7,
                                         markeredgecolor=color, markerfacecolor='none')
 
-                            # paired acid marker for totals (HEPES/Acetate) when applicable
                             if key in ('hepes','acetate'):
                                 tot = 0.04 if key=='hepes' else 0.042
                                 yc = np.clip((tot - hh_series[:L]) * fk, 0, None)
@@ -334,12 +328,10 @@ def plot_buffer_groups(
             ax.set_ylim(bottom=0)
             _apply_axis_style(ax, grp.get("unit","mM"))
 
-        # drop unused axes for non-3-multiples
         if not special:
             for ax in axes[len(buffer_groups):]:
                 ax.remove()
 
-        # legend (two exemplars: one eGFP, one CSP, if present)
         handles, labels = [], []
         def _add_kinetic(lbl):
             if not lbl: return
@@ -373,18 +365,15 @@ def plot_buffer_groups(
                    borderaxespad=0.0, handletextpad=0.5,
                    columnspacing=1.2, labelspacing=0.3)
 
-        # final spacing
         fig.subplots_adjust(left=LEFT_FIG, right=RIGHT_FIG, bottom=BOT_FIG, top=TOP_FIG,
                             wspace=WSPACE, hspace=HSPACE)
 
         out_dir = Path(out_pdf).parent
         out_dir.mkdir(parents=True, exist_ok=True)
         out_path = Path(out_pdf)
-        # If splitting, append suffix handled by caller; otherwise use provided name
         fig.savefig(out_path, dpi=600, bbox_inches='tight')
         plt.close(fig)
 
-    # Split by buffer type (HEPES vs TRIS) or do all
     if split_by_tris_hepes:
         hep = {k:v for k,v in dataset_paths.items() if 'HEPES' in k.upper()}
         tris= {k:v for k,v in dataset_paths.items() if 'TRIS'  in k.upper()}
@@ -392,7 +381,6 @@ def plot_buffer_groups(
         if hep:
             p = Path(out_pdf); out_hep = p.with_name(p.stem.replace("ALL","HEPES") + p.suffix)
             _plot_for_subset(hep,  title_suffix='HEPES')
-            # saved as out_pdf already; rename if needed
             Path(out_pdf).rename(out_hep)
         if tris:
             p = Path(out_pdf); out_tris = p.with_name(p.stem.replace("ALL","TRIS") + p.suffix)

@@ -2,24 +2,7 @@
 """
 hh_model.py
 ===========
-
 Henderson–Hasselbalch (HH) utilities for multi-buffer mixtures used in IVT / bioprocess media.
-
-What this provides
-------------------
-- Buffer dataclass: name, pKa, C_total (mol/L)
-- Species distributions at a target pH for any mixture of monoprotic buffers
-- Mixture buffer capacity beta(pH) with optional water contribution
-- Titration-style summaries and plots across a pH grid
-- Ready-to-run demo that reproduces the HEPES/TRIS + acetate + NTP + Pi grids
-
-Notes
------
-• This module is independent of the DAE/UKF code; it only needs NumPy/SciPy/Matplotlib/Pandas.
-• All acids are treated as monoprotic HA <-> H+ + A-. (Phosphate is approximated as a single
-  pKa=7.2 pair (H2PO4-/HPO4^2-) for the operating pH window; extend if you need full polyprotic
-  treatment.)
-• "Acetate" below can represent the acetate buffer provided by magnesium acetate stocks.
 
 Author: Mahdi Ahmed, Shady Hamed, 2025
 License: MIT
@@ -34,9 +17,7 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import brentq
 import matplotlib
-# Non-interactive safe backend unless a GUI is available
-if not matplotlib.get_backend().lower().startswith("qt"):
-    matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 
 
@@ -175,7 +156,6 @@ def plot_systems(systems: List[Tuple[str, List[Buffer]]],
         ax2.plot(df.index, df["beta"], lw=1.5, ls="--", alpha=0.75)
         ax2.set_ylabel("β (dB/dpH)")
 
-    # Remove blank axes
     for j in range(len(systems), rows * cols):
         r, c = divmod(j, cols)
         fig.delaxes(axes[r][c])
@@ -190,8 +170,6 @@ def plot_systems(systems: List[Tuple[str, List[Buffer]]],
     paths.append(out)
     return paths
 
-
-# ---------------------------- Convenience API ----------------------------
 
 def calculate_initial_concentrations(
     buffers: Iterable[Buffer], target_pH: float
@@ -215,8 +193,6 @@ def calculate_initial_concentrations(
     df.attrs["beta"] = buffer_capacity(buffers, target_pH, include_water=True)
     return df
 
-
-# ---------------------------- Demo / quickstart ----------------------------
 
 def default_systems() -> List[Tuple[str, List[Buffer]]]:
     """Replicate the co-author's grid of systems (HEPES vs TRIS at various levels)."""
@@ -254,7 +230,6 @@ def demo(outdir: str | Path = "figures/hh", show: bool = False) -> List[Path]:
     # 1) Plots for all systems
     paths = plot_systems(default_systems(), outdir=outdir, show=show)
 
-    # 2) Example table at pH 7.0 for "C) HEPES 40 mM"
     title, bufs = default_systems()[2]
     df = calculate_initial_concentrations(bufs, target_pH=7.0)
     outdir = Path(outdir)
@@ -264,8 +239,6 @@ def demo(outdir: str | Path = "figures/hh", show: bool = False) -> List[Path]:
     paths.append(csv_path)
     return paths
 
-
-# ---------------------------- Legacy convenience wrapper ----------------------------
 
 def calculate_initial_concentrations_legacy(
     hepes_pka: float, hepes_conc: float,
@@ -290,7 +263,6 @@ def calculate_initial_concentrations_legacy(
 
 
 if __name__ == "__main__":
-    # Run the demo when this file is executed directly
     outs = demo(outdir=Path("figures") / "hh_demo", show=False)
     for p in outs:
         print(f"[OK] wrote {p}")

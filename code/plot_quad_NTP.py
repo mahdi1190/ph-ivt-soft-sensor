@@ -2,27 +2,6 @@
 """
 plot_NTP_quad.py
 ================
-
-Eight-panel figure (4 runs × [Model vs HH]):
-- Experimental data: data/all_data_processed.xlsx with sheets:
-    egfphepes, egfptris, csphepes, csptris
-- pH selection rules: egfphepes→ph2, csptris→ph3, csphepes→ph2, egfptris→ph1
-- Model CSVs read from reports/softsensor_run/
-- HH workbook (Excel) (H_H_NTP.xlsx)
-
-Usage (CLI):
-  python -m code.plot_NTP_quad \
-    --all-data data/all_data_processed.xlsx \
-    --hh-excel data/H_H_NTP.xlsx \
-    --out-root figures/quad_ntp
-
-Or import:
-  from code.plot_NTP_quad import eight_panel
-  eight_panel("data/all_data_processed.xlsx", "data/H_H_NTP.xlsx")
-
-Deps:
-  numpy pandas matplotlib scikit-learn openpyxl
-
 Author: Mahdi Ahmed (2025)
 License: MIT
 """
@@ -42,7 +21,6 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from sklearn.metrics import r2_score, mean_squared_error
 
-# ------------------- styling & constants -------------------
 NTPC = {'ATP':'#0072B2','UTP':'#D55E00','GTP':'#009E73','CTP':'#CC79A7'}
 MRK  = {'ATP':'o','UTP':'s','GTP':'^','CTP':'d'}
 
@@ -92,7 +70,6 @@ MODEL_PATHS: Dict[str, str] = {
     "csptris":   "reports/softsensor_run/ivt_ukf_results_csp_TRIS.csv",
 }
 
-# ------------------- NA / numeric safety -------------------
 def _standardize_na(df: pd.DataFrame) -> pd.DataFrame:
     return df.replace(NA_STRINGS, np.nan)
 
@@ -122,7 +99,6 @@ def _interp_clean(x, y, x_new):
     yw = yw[idx]
     return np.interp(x_new, xw_unique, yw, left=np.nan, right=np.nan)
 
-# ------------------- experimental loader (one workbook) -------------------
 def _clean_cols(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     out.columns = [c.strip().replace(" ", "_") for c in out.columns]
@@ -142,7 +118,6 @@ def load_exp(all_data_path: str | Path, run_id: str) -> pd.DataFrame:
     if path.suffix.lower() in {".xlsx", ".xls"}:
         df = pd.read_excel(path, sheet_name=run, na_values=NA_STRINGS, keep_default_na=True)
     else:
-        # CSV fallback expects a run_id column
         df_all = pd.read_csv(path, na_values=NA_STRINGS, keep_default_na=True)
         if "run_id" not in df_all.columns:
             raise ValueError("CSV must include a 'run_id' column.")
@@ -175,7 +150,6 @@ def load_exp(all_data_path: str | Path, run_id: str) -> pd.DataFrame:
     if "temp" in df.columns:
         out["temp"] = df["temp"].astype(float)
 
-    # keep rows that have at least something measured (avoid pure-NaN lines)
     keep = _finite_mask(out["time_min"]) & (
         _finite_mask(out["ATP_tot"]) | _finite_mask(out["GTP_tot"]) |
         _finite_mask(out["CTP_tot"]) | _finite_mask(out["UTP_tot"]) |
@@ -287,7 +261,6 @@ def plot_hh_vs_exp(ax, hh_excel_path: str | Path | None, hh_sheet: str,
                    exp_df: pd.DataFrame, ntp_keys=("ATP_tot","UTP_tot","GTP_tot","CTP_tot"),
                    annotate_metrics=True, smooth_window=5):
     if hh_excel_path is None:
-        # echo experimental curves if HH not provided
         t_exp = exp_df["time_min"].to_numpy()
         for key in ntp_keys:
             ntp = key.split('_')[0].upper()
@@ -427,7 +400,6 @@ def eight_panel(all_data: str | Path,
     plt.close(fig)
     return {"png": png, "pdf": pdf if save_pdf else None}
 
-# ------------------- CLI -------------------
 def main():
     p = argparse.ArgumentParser(description="8-panel NTP plots (Model vs HH) from single experimental workbook")
     p.add_argument("--all-data", required=True, help="Path to data/all_data_processed.xlsx (or CSV with run_id).")

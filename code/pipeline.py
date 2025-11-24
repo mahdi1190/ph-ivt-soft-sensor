@@ -1,4 +1,3 @@
-"""Example CLI pipeline to fetch/process data and reproduce results."""
 from pathlib import Path
 import argparse
 

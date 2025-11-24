@@ -4,19 +4,6 @@
 plot_species_grid.py
 ====================
 
-Grid figure for selected IVT species across four datasets (eGFP/CSP × HEPES/TRIS).
-
-Inputs (default locations):
-  reports/softsensor_run/
-    - ivt_ukf_results_egfp_HEPES.csv
-    - ivt_ukf_results_egfp_TRIS.csv
-    - ivt_ukf_results_csp_HEPES.csv
-    - ivt_ukf_results_csp_TRIS.csv
-
-Outputs:
-  figures/species/superplot.pdf
-  figures/species/superplot.png
-
 Author: Mahdi Ahmed (2025)
 License: MIT
 """
@@ -34,7 +21,6 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.ticker import ScalarFormatter
 
-# ---------- unified layout (7.3 × 8.0, compact, all fonts = 10) ----------
 FIGSIZE         = (7.3, 8.0)
 TOP_FIG         = 0.80
 BOTTOM_FIG      = 0.10
@@ -72,7 +58,6 @@ CSV_DEFAULTS = {
     "CSP + TRIS":   "ivt_ukf_results_csp_TRIS.csv",
 }
 
-# Turn off scientific notation and offsets globally for axes
 plt.rcParams['axes.formatter.useoffset'] = False
 plt.rcParams['axes.formatter.use_locale'] = False
 
@@ -109,8 +94,6 @@ def apply_plain_ticks(ax: plt.Axes):
     fmt = ScalarFormatter(useOffset=False, useMathText=False)
     fmt.set_scientific(False)
     ax.yaxis.set_major_formatter(fmt)
-    # (optional) also for x if needed:
-    # ax.xaxis.set_major_formatter(fmt)
 
 def plot_species_grid(
     dataset_paths: dict[str, str | Path],
@@ -160,7 +143,7 @@ def plot_species_grid(
         # y-limits and tick formatting
         if species.lower() != 'ph_pred':
             ax.set_ylim(bottom=0)
-        apply_plain_ticks(ax)  # <- no scientific 1e−3, no offsets
+        apply_plain_ticks(ax)  
 
         # Panel header
         letter = chr(65 + idx)
@@ -180,11 +163,9 @@ def plot_species_grid(
         ax.tick_params(axis='y', labelsize=TICK_LABEL_SIZE, pad=YTICK_PAD)
         ax.grid(False)
 
-    # Remove extra axes if grid > n
     for ax in axes[n:]:
         ax.remove()
 
-    # ---------- Dataset legend (2 columns → 2 rows for 4 items) ----------
     ds_handles = [Line2D([0],[0], color=styles[l]['color'],
                          lw=styles[l]['lw'], linestyle=styles[l]['linestyle'])
                   for l in dataset_paths]

@@ -35,7 +35,6 @@ if not matplotlib.get_backend().lower().startswith("qt"):
     matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-# ------------------- styling -------------------
 plt.rcParams['axes.titlelocation'] = 'left'
 COL = {
     'ph'  : '#003366',  # dark blue
@@ -47,13 +46,11 @@ TITLE_SIZE      = 12
 AX_LABEL_SIZE   = 11
 TICK_LABEL_SIZE = 10
 
-# Figure geometry (RSC-friendly)
 FIG_W, FIG_H = 7.3, 6.5
 TOP, BOT, LEFT, RIGHT = 0.86, 0.10, 0.10, 0.98
 WSPACE, HSPACE = 0.30, 0.35
 LEG_FONTSIZE = 10
 
-# ------------------- helpers -------------------
 NA_STRINGS = ["", " ", "NA", "N/A", "na", "NaN", "-", "--"]
 
 RUNS: List[Tuple[str, str]] = [
@@ -108,7 +105,6 @@ def plot_sheet(ax: plt.Axes, df: pd.DataFrame, title: str, unc_scale: float = 1.
             m = _finite_mask(t, df[col].to_numpy())
             if m.any():
                 h = ax.scatter(t[m], df[col].to_numpy()[m], s=12, alpha=0.25, color=COL['ph'])
-        # mean pH across available replicates (row-wise mean)
         ph_mean = df[ph_cols].mean(axis=1, skipna=True).to_numpy()
         m = _finite_mask(t, ph_mean)
         if m.any():
@@ -164,14 +160,12 @@ def plot_sheet(ax: plt.Axes, df: pd.DataFrame, title: str, unc_scale: float = 1.
     ax3.set_ylim(30, 40)
     ax3.tick_params(axis='y', labelcolor=COL['temp'], labelsize=TICK_LABEL_SIZE)
 
-    # ---- axes cosmetics ----
     ax.set_xlabel("Time (minutes)", fontsize=AX_LABEL_SIZE)
     ax.set_xlim(left=0)
     ax.tick_params(labelsize=TICK_LABEL_SIZE)
     ax2.tick_params(labelsize=TICK_LABEL_SIZE)
     ax3.tick_params(labelsize=TICK_LABEL_SIZE)
 
-    # panel title (set by caller with a figure-level label)
     return handles, labels
 
 # ------------------- main quad -------------------
@@ -187,7 +181,6 @@ def quad_plot(excel_path: str | Path,
     if uncales is None:
         uncales = [1.0] * len(sheets)
 
-    # read all sheets at once, normalize names
     dfs = pd.read_excel(excel_path,
                         sheet_name=sheets,
                         na_values=NA_STRINGS,
@@ -205,7 +198,6 @@ def quad_plot(excel_path: str | Path,
         h, l = plot_sheet(ax, dfs[sheet], title, unc_scale=unc)
         all_h.extend(h); all_l.extend(l)
 
-        # figure-level panel label "(A) Title" where only letter is bold
         letter = chr(65 + idx)  # 'A', 'B', ...
         pos = ax.get_position()
         fig.text(
@@ -215,7 +207,6 @@ def quad_plot(excel_path: str | Path,
             fontsize=TITLE_SIZE, fontweight='normal', va='bottom', ha='left'
         )
 
-    # compose a stable legend in desired order (skip missing traces safely)
     order = ["pH", "UV spectrophotometry", "Fluorometry", "Temperature"]
     legend_handles, legend_labels = [], []
     for name in order:
@@ -235,7 +226,6 @@ def quad_plot(excel_path: str | Path,
     plt.close(fig)
     return {"png": png, "pdf": pdf}
 
-# ------------------- CLI -------------------
 def main():
     ap = argparse.ArgumentParser(description="2×2 pH/RNA/Temp quad plot from all_data_processed.xlsx")
     ap.add_argument("--all-data", default="data/all_data_processed.xlsx",
