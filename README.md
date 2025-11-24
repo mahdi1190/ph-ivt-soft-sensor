@@ -1,5 +1,4 @@
 # Soft sensor based on pH for real-time monitoring of mRNA medicines production — Data & Code
-Author: Mahdi Ahmed
 
 This repository contains the **data**, **analysis code**, and **reproduction instructions** for the manuscript:
 
@@ -9,7 +8,8 @@ This repository contains the **data**, **analysis code**, and **reproduction ins
 **Affiliations**
 - School of Chemical, Materials and Biological Engineering, University of Sheffield, Sheffield S1 3JD, UK.
 - Department of Chemical Engineering, Imperial College London, London SW7 2AZ, UK.
-
+  
+*First Author:* Mahdi Ahmed (smhamed3@sheffield.ac.uk)
 **Corresponding author:** Zoltan Kis (z.kis@sheffield.ac.uk)
 
 ## Quick start
@@ -43,10 +43,29 @@ reports/               # Tables and other artefacts used in the manuscript
 
 See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, source/DOI, license).
 
-## Licensing
+## License and Usage
+![License: ARUL](https://img.shields.io/badge/License-ARUL-blue.svg)
+This repository provides reference code supporting the publication:
 
-- **Code** is MIT licensed (see `LICENSE`).
-- **Data** are licensed CC BY 4.0 unless otherwise stated (see `DATA_LICENSE.md`). Third-party data retain their original licenses, which are recorded in `DATA.md`.
+> Mahdi Ahmed *et al.* “Soft sensor based on pH for real-time monitoring of mRNA medicines production.” [Journal / Preprint], 2025.  
+> *(Update with full citation when available.)*
+
+The **code** is released under the **Academic and Research Use License (ARUL)** (see `LICENSE`).  
+It is free to use, modify, and redistribute **for non-commercial research and educational purposes only**.  
+**Commercial use is not permitted** without a separate, written license agreement.
+
+For commercial licensing enquiries, please contact:
+- Commercialisation Team at the University of Sheffield: https://sheffield.ac.uk/commercialisation
+- Legal team at the University of Sheffield: ri-contracts@sheffield.ac.uk
+- Dr Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk
+
+If you use this code in academic work, please **cite the publication** listed above.
+
+### Data licensing
+
+Unless otherwise noted, **data** in `data/` are licensed **CC BY 4.0** (see `DATA_LICENSE.md`).  
+Third-party data retain their original licenses and are documented in `DATA.md`.
+
 
 ## How to cite
 
@@ -56,7 +75,7 @@ When citing the **article** and **this repository**, please include both:
   Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, 2025, DOI: tba.
 
 - Code & data:  
-  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor-DA (DOI: tba).
+  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor (DOI: tba).
 
 BibTeX and other formats will be available via the repository's `CITATION.cff` and the Zenodo record.
 
