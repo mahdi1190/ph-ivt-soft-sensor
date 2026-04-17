@@ -20,11 +20,11 @@ authors:
     given-names: "Joan"
   - family-names: "Kis"
     given-names: "Zoltan"
-version: "0.1.0"
+version: "1.0.0"
 doi: ""
-date-released: "2025-09-23"
-license: "MIT"
-repository-code: "https://github.com/<org-or-user>/<repo>"
+date-released: "2026-04-17"
+license: "LicenseRef-ARUL"
+repository-code: "https://github.com/mahdi1190/ph-ivt-soft-sensor"
 preferred-citation:
   type: article
   authors:
@@ -48,5 +48,5 @@ preferred-citation:
     given-names: "Zoltan"
   title: "Soft sensor based on pH for real-time monitoring of mRNA medicines production"
   journal: "Digital Discovery"
-  year: 2025
+  year: 2026
   doi: ""
