@@ -21,8 +21,13 @@ authors:
   - family-names: "Kis"
     given-names: "Zoltan"
 version: "1.0.0"
+doi: "10.5281/zenodo.19629300"
 date-released: "2026-04-17"
 repository-code: "https://github.com/mahdi1190/ph-ivt-soft-sensor"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19629299"
+    description: "Concept DOI (all versions)"
 preferred-citation:
   type: article
   authors:
