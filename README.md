@@ -1,9 +1,13 @@
 # Soft sensor based on pH for real-time monitoring of mRNA medicines production — Data & Code
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19629299.svg)](https://doi.org/10.5281/zenodo.19629299)
+
 This repository contains the **data**, **analysis code**, and **reproduction instructions** for the manuscript:
 
 > **Soft sensor based on pH for real-time monitoring of mRNA medicines production**  
-> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. (*DOI to be added when available.*)
+> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. (*Article DOI to be added when available.*)
+
+Archived code & data snapshot: [10.5281/zenodo.19629299](https://doi.org/10.5281/zenodo.19629299) (concept DOI — always resolves to the latest version).
 
 **Affiliations**
 - School of Chemical, Materials and Biological Engineering, University of Sheffield, Sheffield S1 3JD, UK.
@@ -75,9 +79,9 @@ When citing the **article** and **this repository**, please include both:
   Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, 2025, DOI: tba.
 
 - Code & data:  
-  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, GitHub, 2025, https://github.com/mahdi1190/ph-ivt-soft-sensor (DOI: tba).
+  Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, Zenodo, 2026, DOI: [10.5281/zenodo.19629299](https://doi.org/10.5281/zenodo.19629299). GitHub: https://github.com/mahdi1190/ph-ivt-soft-sensor.
 
-BibTeX and other formats will be available via the repository's `CITATION.cff` and the Zenodo record.
+BibTeX and other formats are available via the repository's [`CITATION.cff`](CITATION.cff) and the [Zenodo record](https://doi.org/10.5281/zenodo.19629299).
 
 ## Contact
 
