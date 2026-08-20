@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-plot_NTP_quad.py
+plot_quad_NTP.py
 ================
 Author: Mahdi Ahmed (2025)
 License: ARUL (Academic and Research Use License) — see LICENSE file
