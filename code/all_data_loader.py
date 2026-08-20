@@ -6,7 +6,7 @@ all_data_loader.py
 Helper script to deal with the nested data structure of all_data_processed.xlsx
 
 Author: Mahdi Ahmed
-License: MIT
+License: ARUL (Academic and Research Use License) — see LICENSE file
 """
 from __future__ import annotations
 from pathlib import Path

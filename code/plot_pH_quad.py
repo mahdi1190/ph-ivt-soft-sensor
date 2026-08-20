@@ -4,7 +4,7 @@
 plot_ph_quad.py — 4× pH curves (experiment + UKF) from the Excel + reports CSVs.
 
 Author: Mahdi Ahmed (2025)
-License: MIT
+License: ARUL (Academic and Research Use License) — see LICENSE file
 """
 from __future__ import annotations
 

@@ -24,7 +24,7 @@ Notes
 
 • Run this code from if __name__ == "__main__": and then adjust there. Point it to the correct sheet and pH column, or adjust the path accoridngly for your own data.
 Author: Mahdi Ahmed (2025)
-License: MIT
+License: ARUL (Academic and Research Use License) — see LICENSE file
 """
 from __future__ import annotations
 

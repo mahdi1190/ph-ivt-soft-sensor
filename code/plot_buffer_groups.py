@@ -18,7 +18,7 @@ Outputs:
   figures/buffers/buffers_ALL.pdf
 
 Author: Mahdi Ahmed (2025)
-License: MIT
+License: ARUL (Academic and Research Use License) — see LICENSE file
 """
 from __future__ import annotations
 

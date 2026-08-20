@@ -4,8 +4,8 @@
 
 This repository contains the **data**, **analysis code**, and **reproduction instructions** for the manuscript:
 
-> **Soft sensor based on pH for real-time monitoring of mRNA medicines production**  
-> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. (*Article DOI to be added when available.*)
+> **A soft sensor based on pH for real-time monitoring of mRNA medicine production**  
+> Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis. *Digital Discovery*, 2026, **5**, 2899–2914. DOI: [10.1039/D5DD00417A](https://doi.org/10.1039/D5DD00417A)
 
 Archived code & data snapshot: [10.5281/zenodo.19629299](https://doi.org/10.5281/zenodo.19629299) (concept DOI — always resolves to the latest version).
 
@@ -20,7 +20,7 @@ Archived code & data snapshot: [10.5281/zenodo.19629299](https://doi.org/10.5281
 
 1. Clone the repository and create the environment:
    ```bash
-   git clone https://github.com/mahdi1190/ph-ivt-soft-sensor-DA.git
+   git clone https://github.com/mahdi1190/ph-ivt-soft-sensor.git
    cd <repo>
    conda env create -f environment.yml
    conda activate dd-repro
@@ -51,8 +51,7 @@ See [`DATA.md`](DATA.md) for a table listing each dataset (name, description, so
 ![License: ARUL](https://img.shields.io/badge/License-ARUL-blue.svg)
 This repository provides reference code supporting the publication:
 
-> Mahdi Ahmed *et al.* “Soft sensor based on pH for real-time monitoring of mRNA medicines production.” [Journal / Preprint], 2025.  
-> *(Update with full citation when available.)*
+> Mahdi Ahmed *et al.* “A soft sensor based on pH for real-time monitoring of mRNA medicine production.” *Digital Discovery*, 2026, **5**, 2899–2914. DOI: [10.1039/D5DD00417A](https://doi.org/10.1039/D5DD00417A)
 
 The **code** is released under the **Academic and Research Use License (ARUL)** (see `LICENSE`).  
 It is free to use, modify, and redistribute **for non-commercial research and educational purposes only**.  
@@ -75,8 +74,8 @@ Third-party data retain their original licenses and are documented in `DATA.md`.
 
 When citing the **article** and **this repository**, please include both:
 
-- Article (*update if accepted*):  
-  Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **Soft sensor based on pH for real-time monitoring of mRNA medicines production**, 2025, DOI: tba.
+- Article:  
+  Mahdi Ahmed, Shady Hamed, Ricardo Cardoso, Charley Kenyon, Manoj Pohare, Mabrouka Maamra, Mark Dickman, Joan Cordiner, Zoltan Kis, **A soft sensor based on pH for real-time monitoring of mRNA medicine production**, *Digital Discovery*, 2026, **5**, 2899–2914. DOI: [10.1039/D5DD00417A](https://doi.org/10.1039/D5DD00417A).
 
 - Code & data:  
   Mahdi Ahmed *et al.*, **Soft sensor based on pH for real-time monitoring of mRNA medicines production (data and code)**, Zenodo, 2026, DOI: [10.5281/zenodo.19629299](https://doi.org/10.5281/zenodo.19629299). GitHub: https://github.com/mahdi1190/ph-ivt-soft-sensor.

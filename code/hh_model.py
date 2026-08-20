@@ -5,7 +5,7 @@ hh_model.py
 Henderson–Hasselbalch (HH) utilities for multi-buffer mixtures used in IVT / bioprocess media.
 
 Author: Mahdi Ahmed, Shady Hamed, 2025
-License: MIT
+License: ARUL (Academic and Research Use License) — see LICENSE file
 """
 from __future__ import annotations
 
