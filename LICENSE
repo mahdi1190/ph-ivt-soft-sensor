@@ -1,31 +1,62 @@
 Academic and Research Use License (ARUL)
 
-Copyright (c) 2025, Dr Zoltan Kis, University of Sheffield.
-Copyright (c) 2025, Mahdi Ahmed et al.
+Copyright (c) 2025-2026, The University of Sheffield.
 All rights reserved.
-...
+
+Developed at the School of Chemical, Materials and Biological Engineering,
+University of Sheffield. Individual contributors are credited in CITATION.cff
+and in the associated publication.
 
 
-Permission is hereby granted, free of charge, to any person or organisation obtaining a copy of this software (the "Software") and associated documentation files, to use, reproduce, and modify the Software for non-commercial research and educational purposes only, provided that the following conditions are met:
+Permission is hereby granted, free of charge, to any person or organisation
+obtaining a copy of this software (the "Software") and associated documentation
+files, to use, reproduce, and modify the Software for non-commercial research
+and educational purposes only, provided that the following conditions are met:
 
-1. Commercial use of the Software, in whole or in part, is strictly prohibited without a separate, written license agreement obtained from the copyright holder(s).
+1. Commercial use of the Software, in whole or in part, is strictly prohibited
+   without a separate, written license agreement obtained from the copyright
+   holder.
 
-2. Redistributions of the Software or derivative works must retain the above copyright notice, this license, and the following disclaimer.
+2. Redistributions of the Software or derivative works must retain the above
+   copyright notice, this license, and the following disclaimer.
 
-3. Any publications resulting from the use of the Software must cite the associated article:
+3. Any publications resulting from the use of the Software must cite the
+   associated article:
 
-   M. Ahmed, S. Hamed, R. Cardoso, C. Kenyon, M. Pohare, M. Maamra, M. Dickman,
-   J. Cordiner and Z. Kis, "A soft sensor based on pH for real-time monitoring of
-   mRNA medicine production", Digital Discovery, 2026, 5, 2899-2914.
-   DOI: 10.1039/D5DD00417A
+   M. Ahmed, S. Hamed, R. Cardoso, C. Kenyon, M. Pohare, M. Maamra,
+   M. Dickman, J. Cordiner and Z. Kis, "A soft sensor based on pH for
+   real-time monitoring of mRNA medicine production", Digital Discovery,
+   2026, 5(7), 2899-2914. DOI: 10.1039/d5dd00417a
+
+4. Outputs. Files produced by executing the Software, including model
+   prediction files and figures, form part of the Software when distributed in
+   this repository and are governed by this License rather than by
+   DATA_LICENSE.md. Outputs that you generate through your own permitted
+   non-commercial use are yours to use and to publish, subject to condition 3.
+
+5. Third-party components. The Software depends on third-party packages
+   distributed under their own terms, as listed in environment.yml and
+   requirements.txt. This License does not alter those terms, and those
+   packages are not part of the Software.
+
+6. Research use only. The Software is supplied for research purposes. It has
+   not been validated for GMP manufacturing, for clinical or diagnostic use, or
+   for inclusion in any regulatory submission.
+
+All rights not expressly granted above are reserved.
 
 DISCLAIMER
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S) OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 For commercial licensing enquiries, please contact:
-- Commercialisation Team at the University of Sheffield: https://sheffield.ac.uk/commercialisation 
-- Legal team at the University of Sheffield: ri-contracts@sheffield.ac.uk
-- Dr Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk (Project Lead)
-- Sheikh Mahdi Ahmed, University of Sheffield: smahmed3@sheffield.ac.uk (Developer)
-- Shady Hamed, University of Sheffield: s.hamed@sheffield.ac.uk (Developer)
+- Commercialisation Team, University of Sheffield:
+  https://sheffield.ac.uk/commercialisation
+- Research Contracts, University of Sheffield: ri-contracts@sheffield.ac.uk
+- Prof. Zoltan Kis, University of Sheffield: z.kis@sheffield.ac.uk (Project Lead)

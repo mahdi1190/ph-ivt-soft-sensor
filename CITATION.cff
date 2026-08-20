@@ -24,6 +24,7 @@ version: "1.0.0"
 doi: "10.5281/zenodo.19629300"
 date-released: "2026-04-17"
 repository-code: "https://github.com/mahdi1190/ph-ivt-soft-sensor"
+license-url: "https://github.com/mahdi1190/ph-ivt-soft-sensor/blob/main/LICENSE"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19629299"
@@ -53,7 +54,7 @@ preferred-citation:
   journal: "Digital Discovery"
   year: 2026
   volume: 5
-  issue: "7"
+  issue: 7
   start: 2899
   end: 2914
-  doi: "10.1039/D5DD00417A"
+  doi: "10.1039/d5dd00417a"
